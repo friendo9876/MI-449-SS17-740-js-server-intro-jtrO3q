@@ -14,7 +14,7 @@ var server = http.createServer(function (request, response) {
     response.end('<html><body><h1>Welcome To The Random Joke Page!</h1>' + randomJoke(randomJokeId) + '<p><a href="./">Home</a></p><p><a href="./cuteness">cuteness Page</a></p></body></html>')
   } else {
     var errorPath = request.url
-    response.end('<html><body><h1>Page Not Found</h1><p>The path ' + errorPath + ' was not found or does not exist.</p><p><a href="./">Home</a></p></body></html>')
+    response.end('<html><body><h1>Page Not Found</h1><p>404. That’s an error.The path ' + errorPath + ' was not found or does not exist.</p><p><a href="./">Home</a></p></body></html>')
   }
 })
 
