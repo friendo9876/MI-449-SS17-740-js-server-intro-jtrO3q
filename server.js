@@ -3,17 +3,18 @@ var http = require('http')
 var server = http.createServer(function (request, response) {
   if (request.url === '/') {
     response.end(
-      '<h1>Home</h1>' +
-      '<img src="https://i.imgur.com/jKhQJVH.jpg" alt="Waving hi">'
+      '<html><body><h1>Welcome TO My Website!</h1>' +
+      '<img src="https://i.imgur.com/jKhQJVH.jpg" alt="Waving hi">' +
+      '<p><a href="./cuteness">cuteness Page</a></p><p><a href="./joke-random">Random Joke Page</a></p></body></html>'
     )
   } else if (request.url === '/cuteness') {
-    response.end('<html><body><h1>Welcome to the cuteness Page</h1>' + getDogImages() + '</body></html>')
+    response.end('<html><body><h1>Welcome to the cuteness Page</h1>' + getDogImages() + '<p><a href="./">Home</a></p><p><a href="./random-joke">Random Joke Page</a></p></body></html>')
   } else if (request.url === '/random-joke') {
     var randomJokeId = Math.floor(Math.random() * 3) + 1
-    response.end(RandomJoke(randomJokeId))
+    response.end('<html><body><h1>Welcome To The Random Joke Page!</h1>' + randomJoke(randomJokeId) + '<p><a href="./">Home</a></p><p><a href="./cuteness">cuteness Page</a></p></body></html>')
   } else {
     var errorPath = request.url
-    response.end('<html><body><h1>Page Not Found</h1><p>The path ' + errorPath + ' was not found or does not exist.</p></body></html>')
+    response.end('<html><body><h1>Page Not Found</h1><p>The path ' + errorPath + ' was not found or does not exist.</p><p><a href="./">Home</a></p></body></html>')
   }
 })
 
@@ -25,13 +26,13 @@ server.listen(port)
 // Output a friendly message to the terminal
 console.log('Server running at http://localhost:' + port + '/')
 
-function RandomJoke (JokeId) {
+function randomJoke (JokeId) {
   if (JokeId === 1) {
-    return '<h1>THis is the first joke</h1> <br> <a href="./">Home</a>'
+    return '<p>Knock, knock. <br><br> Who\'s there? <br><br> No-one. <br><br>  No-one who? <br><br> (Remain silent)</p>'
   } else if (JokeId === 2) {
-    return '<h1> THis is the second joke</h1> <br> <a href="./">Home</a>'
+    return '<p>Knock. Knock. <br<br> Who\'s there? <br><br> Yoda Lady. <br><br> Yoda lady who? <br><br> Good job yodeling!</p>'
   } else {
-    return '<h1>This is joke three</h1> <br> <a href="./">Home</a>'
+    return '<p>Knock, knock. <br><br> Who\'s there? <br><br> Winnie the Pooh <br><br> Winnie the Pooh who? <br><br> No seriously, Winnie the Pooh right now, let us in or it lands on your doormat!</p>'
   }
 }
 var imageURLs = [
