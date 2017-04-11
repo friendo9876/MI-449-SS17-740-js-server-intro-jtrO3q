@@ -5,7 +5,7 @@ var server = http.createServer(function (request, response) {
     response.end(
       '<html><body><h1>Welcome TO My Website!</h1>' +
       '<img src="https://i.imgur.com/jKhQJVH.jpg" alt="Waving hi">' +
-      '<p><a href="./cuteness">cuteness Page</a></p><p><a href="./joke-random">Random Joke Page</a></p></body></html>'
+      '<p><a href="./cuteness">cuteness Page</a></p><p><a href="./random-joke">Random Joke Page</a></p></body></html>'
     )
   } else if (request.url === '/cuteness') {
     response.end('<html><body><h1>Welcome to the cuteness Page</h1>' + getDogImages() + '<p><a href="./">Home</a></p><p><a href="./random-joke">Random Joke Page</a></p></body></html>')
